@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body class="container" id="changelog">
+  <div class="col-sm-8 col-sm-offset-2">
+
+    <h2>New release</h2>
+    <input type="date" v-model="release.date">
+    <input type="text" placeholder="Release Name" v-model="release.name">
+    <textarea placeholder="Features" v-model="release.features"></textarea>
+    <textarea placeholder="Bugfix" v-model="release.bugfix"></textarea>
+    <button @click="addRelease">Save</button>
+
+    <div v-for="release in changelog">
+      <h2>{{ release.date }} {{ release.name }}</h2>
+      <div class="features">
+        <i>Features</i>
+        <p>{{ release.features }}</p>
+      </div>
+      <div class="bugfix">
+        <i>Bugfix</i>
+        <p>{{ release.bugfix }}</p>
+      </div>
+    </div>
+
+  </div>
+  <script src="vue.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
